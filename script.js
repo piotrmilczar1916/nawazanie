@@ -216,48 +216,4 @@
       toggleLineAccordion(btn);
     });
   });
-
-  /* Hero weigh animation meter labels */
-  var weighResult = document.querySelector('.weigh-anim__result');
-  var weighStatus = document.querySelector('.weigh-anim__status');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (weighResult && weighStatus) {
-    var weighSteps = [
-      { at: 0, result: '0 g', status: 'Napełnianie głowic…' },
-      { at: 2200, result: '68 g', status: 'Analiza kombinacji…' },
-      { at: 3400, result: '99,8 g', status: 'Wybrano najlepszą porcję' },
-      { at: 4200, result: '100 g', status: 'Zsyp do opakowania' },
-      { at: 5200, result: '100 g', status: 'Gotowe — cykl OK' }
-    ];
-    var weighTimerIds = [];
-
-    function clearWeighTimers() {
-      weighTimerIds.forEach(function (id) {
-        clearTimeout(id);
-      });
-      weighTimerIds = [];
-    }
-
-    function applyWeighStep(step) {
-      weighResult.textContent = step.result;
-      weighStatus.textContent = step.status;
-    }
-
-    function runWeighCycle() {
-      clearWeighTimers();
-      weighSteps.forEach(function (step) {
-        weighTimerIds.push(setTimeout(function () {
-          applyWeighStep(step);
-        }, step.at));
-      });
-    }
-
-    if (reduceMotion) {
-      applyWeighStep(weighSteps[weighSteps.length - 1]);
-    } else {
-      runWeighCycle();
-      setInterval(runWeighCycle, 6000);
-    }
-  }
 })();
