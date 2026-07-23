@@ -2192,12 +2192,16 @@ tbody tr:last-child th {
   text-align: center;
 }
 
-/* Footer */
+/* Footer — układ jak wykladarka, kolory nawazanie */
 .site-footer {
-  padding: 2.5rem 0;
-  background: #0a0c12;
-  color: #8a99a8;
+  padding: 4rem 0 2.5rem;
+  background: linear-gradient(180deg, #0b1c2a 0%, #07131d 100%);
+  color: #94a3b8;
   font-size: 0.9375rem;
+}
+
+.footer-brand {
+  max-width: 20rem;
 }
 
 .footer-lead {
@@ -2205,22 +2209,46 @@ tbody tr:last-child th {
   font-weight: 700;
   font-size: 1.25rem;
   color: #fff;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.footer-col {
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
 }
 
 .footer-desc {
   margin: 0;
   line-height: 1.65;
+  font-size: 0.875rem;
+  color: #94a3b8;
 }
 
 .footer-desc a {
-  color: #8a99a8;
+  color: #cbd5e1;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer-desc a:hover {
-  color: #fff;
+  color: var(--color-blue-light);
+}
+
+.footer-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.footer-link-arrow svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  transition: transform 0.2s ease;
+}
+
+.footer-link-arrow:hover svg {
+  transform: translateX(2px);
 }
 
 .footer-label {
@@ -2230,12 +2258,27 @@ tbody tr:last-child th {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #fff;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.15rem;
 }
 
 .footer-grid {
   display: grid;
-  gap: 2rem;
+  gap: 2.5rem;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(148, 163, 184, .2);
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.footer-bottom p {
+  margin: 0;
 }
 
 /* To top */
@@ -2403,6 +2446,12 @@ button:focus-visible {
 
   .footer-grid {
     grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .info-cards {
