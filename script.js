@@ -216,4 +216,57 @@
       toggleLineAccordion(btn);
     });
   });
+
+  /* Formularz kontaktowy → mail.php */
+  var contactForm = document.getElementById('contact-form');
+  var formStatus = document.getElementById('form-status');
+  var submitBtn = document.getElementById('contact-submit');
+
+  if (contactForm && formStatus && submitBtn) {
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      formStatus.hidden = false;
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        formStatus.classList.add('is-error');
+        formStatus.textContent = 'Uzupełnij wymagane pola formularza.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłanie…';
+
+      fetch(contactForm.getAttribute('action') || 'mail.php', {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok && data.ok, message: data.message || '' };
+          });
+        })
+        .then(function (result) {
+          formStatus.classList.add(result.ok ? 'is-success' : 'is-error');
+          formStatus.textContent = result.message || (result.ok
+            ? 'Dziękujemy. Wiadomość została wysłana.'
+            : 'Nie udało się wysłać wiadomości.');
+          if (result.ok) {
+            contactForm.reset();
+          }
+        })
+        .catch(function () {
+          formStatus.classList.add('is-error');
+          formStatus.textContent = 'Błąd połączenia. Napisz na biuro@spolex.com lub zadzwoń: 22 351 71 91.';
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Wyślij wiadomość';
+        });
+    });
+  }
 })();
