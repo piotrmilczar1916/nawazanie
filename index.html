@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naważanie — precyzyjne dozowanie i kontrola wagi w produkcji | nawazanie.pl</title>
   <meta name="description" content="Naważanie to proces odmierzania określonej ilości produktu przed pakowaniem. Dowiedz się, jak działają wagi wielogłowicowa, jak dobrać system do linii produkcyjnej oraz jakie wymagania dotyczą legalizacji i kalibracji wag przemysłowych.">
-  <meta name="theme-color" content="#0EA5E9">
+  <meta name="theme-color" content="#0284C7">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -17,29 +17,30 @@
   <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header" id="site-header" role="banner">
-    <div class="header-bar">
-      <div class="header-inner">
-        <div class="header-start">
-          <a class="site-logo" href="#hero" aria-label="nawazanie.pl – strona główna">nawazanie.pl</a>
-          <nav class="main-nav" id="main-nav" aria-label="Nawigacja sekcji">
-            <a class="nav-link" href="#jak-to-dziala">Jak to działa</a>
-            <a class="nav-link" href="#rodzaje-wag">Rodzaje wag</a>
-            <a class="nav-link" href="#zastosowania">Zastosowania</a>
-            <a class="nav-link" href="#korzysci">Korzyści</a>
-            <a class="nav-link" href="#legalizacja-kalibracja">Legalizacja</a>
-            <a class="nav-link" href="#faq">FAQ</a>
-            <a class="nav-link" href="#kontakt">Kontakt</a>
-          </nav>
-        </div>
-        <div class="header-end">
-          <a class="nav-cta" href="#kontakt">Zapytaj o dobór wagi</a>
-          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu nawigacji">
-            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
+    <div class="container header-inner">
+      <a class="site-logo" href="#hero" aria-label="nawazanie.pl – strona główna">
+        <span class="site-logo__name">nawazanie.pl</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Nawigacja sekcji">
+        <a class="nav-link" href="#jak-to-dziala">Jak to działa</a>
+        <a class="nav-link" href="#rodzaje-wag">Rodzaje wag</a>
+        <a class="nav-link" href="#zastosowania">Zastosowania</a>
+        <a class="nav-link" href="#korzysci">Korzyści</a>
+        <a class="nav-link" href="#legalizacja-kalibracja">Legalizacja</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="nav-link" href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn--primary btn--header" href="#kontakt">Zapytaj o dobór wagi</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otwórz menu nawigacji">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
       </div>
     </div>
+
     <div class="mobile-menu" id="mobile-menu" aria-label="Menu mobilne">
       <nav>
         <a class="mobile-nav-link" href="#jak-to-dziala">Jak to działa</a>
@@ -49,7 +50,7 @@
         <a class="mobile-nav-link" href="#legalizacja-kalibracja">Legalizacja</a>
         <a class="mobile-nav-link" href="#faq">FAQ</a>
         <a class="mobile-nav-link" href="#kontakt">Kontakt</a>
-        <a class="mobile-nav-link nav-cta--mobile" href="#kontakt">Zapytaj o dobór wagi</a>
+        <a class="mobile-nav-link btn btn--primary btn--mobile" href="#kontakt">Zapytaj o dobór wagi</a>
       </nav>
     </div>
   </header>
@@ -58,624 +59,501 @@
 
     <!-- Hero -->
     <section class="hero" id="hero" aria-labelledby="hero-heading">
-      <div class="hero-grid-bg" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow--blue" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow--soft" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <img src="assets/img/hero-bg.webp" alt="" class="hero-bg__img">
+        <img src="assets/img/tech-lines.webp" alt="" class="hero-bg__lines">
+        <p class="hero-script">Technologia, która waży sukces</p>
+      </div>
 
-      <div class="container container--wide">
-        <div class="hero-layout">
-          <div class="hero-copy">
-            <h1 id="hero-heading">
-              <span class="hero-title">Naważanie</span>
-              <span class="hero-accent" aria-hidden="true"></span>
-            </h1>
-            <p class="hero-lead">Naważanie to proces odmierzania określonej ilości produktu — wagowo lub sztukowo — przed jego zapakowaniem. W praktyce oznacza to, że każde opakowanie na końcu linii produkcyjnej zawiera dokładnie tyle produktu, ile deklaruje etykieta, bez ręcznego ważenia każdej porcji.</p>
-            <div class="hero-actions">
-              <a class="btn btn--primary" href="#jak-to-dziala">
-                Jak działa naważanie
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-              </a>
-              <a class="btn btn--secondary" href="#rodzaje-wag">Rodzaje wag</a>
-            </div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Automatyczne naważanie i dozowanie</p>
+          <h1 id="hero-heading">
+            Dokładne porcje.<br>
+            <span class="text-accent">Sprawniejsza produkcja.</span>
+          </h1>
+          <p class="hero-lead">Naważanie to proces odmierzania określonej ilości produktu — wagowo lub sztukowo — przed jego zapakowaniem. W praktyce oznacza to, że każde opakowanie na końcu linii produkcyjnej zawiera dokładnie tyle produktu, ile deklaruje etykieta, bez ręcznego ważenia każdej porcji.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#kontakt">
+              Dobierz rozwiązanie
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#jak-to-dziala">
+              <svg class="btn-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg>
+              Zobacz, jak działa
+            </a>
           </div>
+        </div>
 
-          <div class="hero-visual">
-            <figure class="hero-machine">
-              <img
-                src="assets/img/waga-wieloglowicowa.png"
-                alt="Waga wielogłowicowa — linia do automatycznego naważania"
-                width="1024"
-                height="749"
-                loading="eager"
-                decoding="async"
-                fetchpriority="high"
-              >
+        <div class="hero-visual reveal">
+          <figure class="hero-machine">
+            <img
+              src="assets/img/hero-weigher.webp"
+              alt="Waga wielogłowicowa — linia do automatycznego naważania"
+              width="1024"
+              height="749"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            >
+          </figure>
+          <aside class="hero-info-card" aria-label="Cechy wagi wielogłowicowej">
+            <p class="hero-info-card__label">Waga wielogłowicowa</p>
+            <ul>
+              <li>Precyzyjne porcjowanie</li>
+              <li>Wysoka wydajność</li>
+              <li>Szerokie zastosowania</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+
+      <div class="container">
+        <ul class="hero-proofs reveal">
+          <li>
+            <span class="hero-proofs__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18"/><path d="M5 10h14"/><path d="M8 10l4-7 4 7"/></svg>
+            </span>
+            <span>Wysoka dokładność</span>
+          </li>
+          <li>
+            <span class="hero-proofs__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16V9"/><path d="M12 16v-5"/><path d="M16 16V7"/></svg>
+            </span>
+            <span>Większa wydajność</span>
+          </li>
+          <li>
+            <span class="hero-proofs__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="8.5" y="13" width="7" height="7" rx="1.5"/></svg>
+            </span>
+            <span>Integracja z linią pakującą</span>
+          </li>
+          <li>
+            <span class="hero-proofs__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 4.8L20 8l-4 3.9.9 5.6L12 15.8 7.1 17.5 8 11.9 4 8l5.6-1.2L12 2z"/></svg>
+            </span>
+            <span>Niezawodność i serwis</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Jak to działa -->
+    <section id="jak-to-dziala" class="section section-how" aria-labelledby="how-heading">
+      <div class="container how-grid">
+        <div class="how-copy reveal">
+          <p class="eyebrow">Proces naważania</p>
+          <h2 id="how-heading">Jak działa<br>naważanie?</h2>
+          <p class="section-text">Waga to tylko jeden element linii — cały proces obejmuje podanie produktu, ważenie, rozdział na kanały pakujące i higienę. Platformy, systemy podające, dystrybucyjne i myjące muszą być dobrane indywidualnie do konkretnego produktu i formatu opakowania.</p>
+          <a class="btn btn--primary" href="#rodzaje-wag">
+            Poznaj rodzaje wag
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+        </div>
+
+        <div class="how-visual reveal">
+          <div class="process-diagram">
+            <div class="process-steps-row" aria-hidden="true">
+              <div class="process-step">
+                <span class="process-step__num">01</span>
+                <span class="process-step__label">Podanie produktu</span>
+              </div>
+              <div class="process-step">
+                <span class="process-step__num">02</span>
+                <span class="process-step__label">Ważenie</span>
+              </div>
+              <div class="process-step">
+                <span class="process-step__num">03</span>
+                <span class="process-step__label">Kanały</span>
+              </div>
+              <div class="process-step">
+                <span class="process-step__num">04</span>
+                <span class="process-step__label">Zrzut</span>
+              </div>
+              <div class="process-step">
+                <span class="process-step__num">05</span>
+                <span class="process-step__label">Higiena</span>
+              </div>
+            </div>
+            <div class="process-track" aria-hidden="true">
+              <span class="process-track__dot"></span>
+              <span class="process-track__line"></span>
+              <span class="process-track__dot"></span>
+              <span class="process-track__line"></span>
+              <span class="process-track__dot"></span>
+              <span class="process-track__line"></span>
+              <span class="process-track__dot"></span>
+              <span class="process-track__line"></span>
+              <span class="process-track__dot"></span>
+            </div>
+            <figure class="process-diagram__image">
+              <img src="assets/img/weighing-line.webp" alt="Schemat linii naważania — podanie, ważenie, kanały, zrzut i higiena" width="1200" height="675" loading="lazy" decoding="async">
             </figure>
           </div>
-        </div>
 
-        <dl class="hero-stats">
-          <div class="hero-stats__cell">
-            <dt>4</dt>
-            <dd>główne typy wag przemysłowych</dd>
-          </div>
-          <div class="hero-stats__cell">
-            <dt>g</dt>
-            <dd>dokładność do pojedynczych gramów</dd>
-          </div>
-          <div class="hero-stats__cell">
-            <dt>5</dt>
-            <dd>etapów procesu naważania na linii</dd>
-          </div>
-          <div class="hero-stats__cell">
-            <dt>2</dt>
-            <dd>obszary: żywność i non-food</dd>
-          </div>
-        </dl>
-        <p class="hero-stats-note">Wartości orientacyjne — zależne od konfiguracji linii i produktu.</p>
-      </div>
-    </section>
-
-    <!-- Sekcja 1: Jak to działa -->
-    <section id="jak-to-dziala" class="section section-bg section-bg--intro" aria-labelledby="jak-to-dziala-heading">
-      <div class="section-bg__orb section-bg__orb--1" aria-hidden="true"></div>
-      <div class="container container--wide">
-        <header class="section-header">
-          <p class="eyebrow"><span class="eyebrow__num">01</span> Jak to działa</p>
-          <h2 id="jak-to-dziala-heading">Jak przebiega naważanie w praktyce</h2>
-          <p class="section-lead">Wybierz etap i zobacz, jak produkt przechodzi przez linię — od podania, przez ważenie, po higienę.</p>
-        </header>
-
-        <!-- Desktop: poziomy ciąg etapów -->
-        <div class="line-flow-desktop" id="line-flow-desktop">
-          <div class="line-flow-tabs" role="tablist" aria-label="Etapy procesu naważania">
-            <button type="button" role="tab" id="line-tab-0" class="line-step-btn" aria-selected="true" aria-controls="line-panel" data-line-step="0">Podanie produktu</button>
-            <span class="line-connector" aria-hidden="true"></span>
-            <button type="button" role="tab" id="line-tab-1" class="line-step-btn" aria-selected="false" aria-controls="line-panel" data-line-step="1">Ważenie i dobór porcji</button>
-            <span class="line-connector" aria-hidden="true"></span>
-            <button type="button" role="tab" id="line-tab-2" class="line-step-btn" aria-selected="false" aria-controls="line-panel" data-line-step="2">Kanały pakujące</button>
-            <span class="line-connector" aria-hidden="true"></span>
-            <button type="button" role="tab" id="line-tab-3" class="line-step-btn" aria-selected="false" aria-controls="line-panel" data-line-step="3">Systemy zrzutowe</button>
-            <span class="line-connector" aria-hidden="true"></span>
-            <button type="button" role="tab" id="line-tab-4" class="line-step-btn" aria-selected="false" aria-controls="line-panel" data-line-step="4">Higiena i czyszczenie</button>
-          </div>
-
-          <div id="line-panel" class="line-panel" role="tabpanel" aria-labelledby="line-tab-0">
-            <div class="line-panel-content" data-line-content="0">
-              <h3>Podanie produktu</h3>
-              <p>Produkt trafia do systemu przez dopasowaną do niego technologię podawania — rynny wibracyjne, przenośniki taśmowe lub elewatory.</p>
-              <p class="line-panel-content__note">Dobór zależy od rodzaju produktu: inaczej podaje się chipsy czy cukierki w folii, inaczej mrożone ryby, świeżą sałatę czy drobne elementy metalowe.</p>
-            </div>
-            <div class="line-panel-content is-hidden" data-line-content="1">
-              <h3>Ważenie i dobór porcji</h3>
-              <p>Waga odmierza porcje odpowiadające zadanej wadze docelowej. To centralny element całej linii — od jego dokładności i tempa zależy wydajność wszystkiego, co dzieje się dalej.</p>
-              <p class="line-panel-content__note">Platformy, systemy podające i dystrybucyjne muszą być dobrane indywidualnie do konkretnego produktu i formatu opakowania.</p>
-            </div>
-            <div class="line-panel-content is-hidden" data-line-content="2">
-              <h3>Rozdział na kanały pakujące</h3>
-              <p>Odważone porcje trafiają do systemu dystrybucji (tzw. system wielokanałowy), który kieruje je do jednego lub kilku wylotów.</p>
-              <p class="line-panel-content__note">Liczba kanałów zależy od tego, czy maszyna pakująca obsługuje jeden, czy kilka torów jednocześnie.</p>
-            </div>
-            <div class="line-panel-content is-hidden" data-line-content="3">
-              <h3>Systemy zrzutowe przed pakowaniem</h3>
-              <p>Specjalne systemy zrzutowe umieszczone przed maszyną pakującą upraszczają cały proces — zapobiegają przepełnianiu opakowań.</p>
-              <p class="line-panel-content__note">Dzięki temu można dokładniej policzyć koszt jednostkowy każdego opakowania.</p>
-            </div>
-            <div class="line-panel-content is-hidden" data-line-content="4">
-              <h3>Higiena i czyszczenie</h3>
-              <p>Elementy mające kontakt z produktem wymagają regularnego mycia — ściany myjące i systemy czyszczące skracają przestoje.</p>
-              <p class="line-panel-content__note">Pozwalają utrzymać higienę zgodną z wymaganiami dla żywności i ograniczyć czas przezbrojeń między partiami.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mobile: akordeon pionowy -->
-        <div class="line-flow-mobile" id="line-flow-mobile">
-          <div class="line-accordion-item">
-            <button type="button" class="line-accordion-trigger" aria-expanded="true" aria-controls="line-acc-0" id="line-acc-btn-0" data-line-step="0">
-              <span>1. Podanie produktu</span>
-              <svg class="line-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div id="line-acc-0" class="line-accordion-panel is-open" role="region" aria-labelledby="line-acc-btn-0">
-              <div class="line-accordion-panel__inner">
-                <p>Produkt trafia do systemu przez dopasowaną do niego technologię podawania — rynny wibracyjne, przenośniki taśmowe lub elewatory.</p>
-                <p class="line-panel-content__note">Dobór zależy od rodzaju produktu: inaczej podaje się chipsy czy cukierki w folii, inaczej mrożone ryby, świeżą sałatę czy drobne elementy metalowe.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="line-accordion-item">
-            <button type="button" class="line-accordion-trigger" aria-expanded="false" aria-controls="line-acc-1" id="line-acc-btn-1" data-line-step="1">
-              <span>2. Ważenie i dobór porcji</span>
-              <svg class="line-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div id="line-acc-1" class="line-accordion-panel" role="region" aria-labelledby="line-acc-btn-1" hidden>
-              <div class="line-accordion-panel__inner">
-                <p>Waga odmierza porcje odpowiadające zadanej wadze docelowej. To centralny element całej linii — od jego dokładności i tempa zależy wydajność wszystkiego, co dzieje się dalej.</p>
-                <p class="line-panel-content__note">Platformy, systemy podające i dystrybucyjne muszą być dobrane indywidualnie do konkretnego produktu i formatu opakowania.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="line-accordion-item">
-            <button type="button" class="line-accordion-trigger" aria-expanded="false" aria-controls="line-acc-2" id="line-acc-btn-2" data-line-step="2">
-              <span>3. Kanały pakujące</span>
-              <svg class="line-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div id="line-acc-2" class="line-accordion-panel" role="region" aria-labelledby="line-acc-btn-2" hidden>
-              <div class="line-accordion-panel__inner">
-                <p>Odważone porcje trafiają do systemu dystrybucji (tzw. system wielokanałowy), który kieruje je do jednego lub kilku wylotów.</p>
-                <p class="line-panel-content__note">Liczba kanałów zależy od tego, czy maszyna pakująca obsługuje jeden, czy kilka torów jednocześnie.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="line-accordion-item">
-            <button type="button" class="line-accordion-trigger" aria-expanded="false" aria-controls="line-acc-3" id="line-acc-btn-3" data-line-step="3">
-              <span>4. Systemy zrzutowe</span>
-              <svg class="line-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div id="line-acc-3" class="line-accordion-panel" role="region" aria-labelledby="line-acc-btn-3" hidden>
-              <div class="line-accordion-panel__inner">
-                <p>Specjalne systemy zrzutowe umieszczone przed maszyną pakującą upraszczają cały proces — zapobiegają przepełnianiu opakowań.</p>
-                <p class="line-panel-content__note">Dzięki temu można dokładniej policzyć koszt jednostkowy każdego opakowania.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="line-accordion-item">
-            <button type="button" class="line-accordion-trigger" aria-expanded="false" aria-controls="line-acc-4" id="line-acc-btn-4" data-line-step="4">
-              <span>5. Higiena i czyszczenie</span>
-              <svg class="line-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div id="line-acc-4" class="line-accordion-panel" role="region" aria-labelledby="line-acc-btn-4" hidden>
-              <div class="line-accordion-panel__inner">
-                <p>Elementy mające kontakt z produktem wymagają regularnego mycia — ściany myjące i systemy czyszczące skracają przestoje.</p>
-                <p class="line-panel-content__note">Pozwalają utrzymać higienę zgodną z wymaganiami dla żywności i ograniczyć czas przezbrojeń między partiami.</p>
-              </div>
-            </div>
-          </div>
+          <details class="process-details">
+            <summary>Szczegóły poszczególnych etapów</summary>
+            <ol>
+              <li><strong>Podanie produktu</strong> — rynny wibracyjne, przenośniki taśmowe lub elewatory dopasowane do produktu.</li>
+              <li><strong>Ważenie i dobór porcji</strong> — centralny element linii; od dokładności i tempa zależy wydajność dalszych operacji.</li>
+              <li><strong>Kanały pakujące</strong> — system wielokanałowy kieruje porcje do jednego lub kilku wylotów.</li>
+              <li><strong>Systemy zrzutowe</strong> — zapobiegają przepełnianiu opakowań i ułatwiają kontrolę kosztu jednostkowego.</li>
+              <li><strong>Higiena i czyszczenie</strong> — ściany myjące i systemy czyszczące skracają przestoje między partiami.</li>
+            </ol>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- Sekcja 2 -->
-    <section id="rodzaje-wag" class="section section-bg section-bg--compare">
-      <div class="section-bg__orb section-bg__orb--1" aria-hidden="true"></div>
-      <div class="section-bg__orb section-bg__orb--2" aria-hidden="true"></div>
-      <div class="container container--wide">
-        <header class="section-header">
-          <p class="eyebrow"><span class="eyebrow__num">02</span> Przegląd rozwiązań</p>
-          <h2>Rodzaje wag przemysłowych i systemy dozowania</h2>
-          <p class="section-lead">Nie każdy produkt i nie każda linia potrzebują tego samego rozwiązania.</p>
-        </header>
-
-        <div class="cards-row">
-          <article class="type-card">
-            <h3>Waga wielogłowicowa</h3>
-            <p>Najlepsza do produktów sypkich, kawałkowych lub o nieregularnym kształcie — chipsy, mrożone warzywa, kawałki mięsa, orzechy. Wysoka wydajność i powtarzalność przy dużych wolumenach.</p>
-          </article>
-          <article class="type-card">
-            <h3>Waga kontrolna (checkweigher)</h3>
-            <p>Umieszczona w linii, kontroluje wagę już zapakowanego produktu w locie — eliminuje opakowania poza tolerancją zanim trafią do dystrybucji. Często łączona z wykrywaczem metalu.</p>
-          </article>
-          <article class="type-card">
-            <h3>Waga półautomatyczna</h3>
-            <p>Rozwiązanie dla mniejszych linii i niższych wolumenów — operator wspomaga proces, a waga pilnuje precyzji. Niższy koszt wejścia niż pełna automatyzacja.</p>
-          </article>
-          <article class="type-card">
-            <h3>Waga/dozownik objętościowy (bulk weigher)</h3>
-            <p>Do dużych opakowań i big-bagów, gdzie liczy się przepustowość masy, a nie pojedyncza porcja konsumencka.</p>
-          </article>
-        </div>
-
-        <h3>Które rozwiązanie pasuje do Ciebie?</h3>
-        <p>Krótkie zestawienie: typ wagi → typowy produkt → typowa skala produkcji.</p>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Typ wagi</th>
-                <th scope="col">Typowy produkt</th>
-                <th scope="col">Typowa skala produkcji</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Waga wielogłowicowa</td>
-                <td>Chipsy, orzechy, mrożone warzywa, kawałki mięsa</td>
-                <td>Duże wolumeny, wysoka prędkość linii</td>
-              </tr>
-              <tr>
-                <td>Waga kontrolna (checkweigher)</td>
-                <td>Gotowe opakowania dowolnego produktu</td>
-                <td>Kontrola jakości na każdej linii pakującej</td>
-              </tr>
-              <tr>
-                <td>Waga półautomatyczna</td>
-                <td>Produkty specjalistyczne, małe serie</td>
-                <td>Małe i średnie linie, niższe wolumeny</td>
-              </tr>
-              <tr>
-                <td>Dozownik objętościowy (bulk weigher)</td>
-                <td>Produkty sypkie do big-bagów i worków przemysłowych</td>
-                <td>Wysoka przepustowość masy, opakowania zbiorcze</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Sekcja 4 -->
-    <section id="zastosowania" class="section section-bg section-bg--branze">
-      <div class="section-bg__orb section-bg__orb--1" aria-hidden="true"></div>
-      <div class="container container--wide">
-        <header class="section-header">
-          <p class="eyebrow"><span class="eyebrow__num">03</span> Branże i produkty</p>
-          <h2>Naważanie w branży spożywczej i non-food</h2>
-          <p class="section-lead">Od pieczywa po chemię przemysłową — zasada jest ta sama, wyzwania różnią się produktem.</p>
-        </header>
-
-        <div class="split split--text-left split--thumbs">
-          <div class="split__content">
-            <h3>Żywność</h3>
-            <ul class="tag-list">
-              <li>Pieczywo i wyroby piekarnicze</li>
-              <li>Płatki śniadaniowe i musli</li>
-              <li>Mięso, drób i ryby</li>
-              <li>Warzywa i owoce świeże</li>
-              <li>Orzechy, bakalie, przekąski</li>
-              <li>Słodycze i wyroby cukiernicze</li>
-              <li>Produkty mrożone</li>
-              <li>Produkty mieszane (np. mieszanki sałatkowe)</li>
-            </ul>
-
-            <h3>Non-food</h3>
-            <ul class="tag-list">
-              <li>Chemia gospodarcza i przemysłowa</li>
-              <li>Farmaceutyki</li>
-              <li>Drobne elementy metalowe i hardware</li>
-              <li>Karma dla zwierząt</li>
-              <li>Produkty rolnicze</li>
-            </ul>
-
-            <h3>Specyficzne wyzwania produktowe</h3>
-            <p>Produkty lepkie, kruche, o zmiennej wilgotności czy nieregularnym kształcie wymagają innego doboru głowic i prędkości pracy niż produkty jednorodne. Dobór wagi zaczyna się od analizy samego produktu, nie od gotowego modelu urządzenia.</p>
+    <!-- Rodzaje wag -->
+    <section id="rodzaje-wag" class="section section-types" aria-labelledby="types-heading">
+      <div class="container">
+        <header class="section-head section-head--split reveal">
+          <div>
+            <h2 id="types-heading">Rodzaje wag</h2>
+            <p class="section-text">Nie każdy produkt i nie każda linia potrzebują tego samego rozwiązania.</p>
           </div>
-
-          <aside class="split__media">
-            <div class="product-thumbs" aria-label="Przykładowe produkty">
-              <figure class="product-thumb">
-                <img src="assets/img/pieczywo.jpg" alt="Pieczywo i wyroby piekarnicze" width="800" height="532" loading="lazy" decoding="async">
-                <figcaption>Pieczywo</figcaption>
-              </figure>
-              <figure class="product-thumb">
-                <img src="assets/img/orzechy.jpg" alt="Orzechy, bakalie, przekąski" width="800" height="534" loading="lazy" decoding="async">
-                <figcaption>Orzechy i przekąski</figcaption>
-              </figure>
-              <figure class="product-thumb">
-                <img src="assets/img/warzywa.jpg" alt="Warzywa i owoce świeże" width="800" height="533" loading="lazy" decoding="async">
-                <figcaption>Warzywa i owoce</figcaption>
-              </figure>
-            </div>
-          </aside>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Sekcja 5: Korzyści -->
-    <section id="korzysci" class="section section-bg section-bg--benefits" aria-labelledby="korzysci-heading">
-      <div class="section-bg__orb section-bg__orb--1" aria-hidden="true"></div>
-      <div class="container container--wide">
-        <header class="section-header">
-          <p class="eyebrow"><span class="eyebrow__num">04</span> Korzyści</p>
-          <h2 id="korzysci-heading">Korzyści z automatyzacji naważania</h2>
-          <p class="section-lead">Automatyzacja procesu ważenia to nie tylko szybkość — to mierzalny wpływ na koszty, jakość i zgodność z przepisami.</p>
+          <a class="link-arrow" href="#rodzaje-porownanie">Porównaj rozwiązania</a>
         </header>
 
-        <div class="benefits-accordion" data-accordion>
-          <article class="benefit-item is-open">
-            <h3>
-              <button type="button" class="benefit-item__trigger" aria-expanded="true" aria-controls="benefit-panel-1" id="benefit-trigger-1">
-                <span class="benefit-item__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 10h14"/><path d="M7 21h10"/><path d="M8 10l4-7 4 7"/></svg>
-                </span>
-                <span class="benefit-item__title">Mniejsze straty surowca</span>
-                <span class="benefit-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="benefit-item__panel" id="benefit-panel-1" role="region" aria-labelledby="benefit-trigger-1">
-              <div class="benefit-item__content">
-                <p>Precyzyjne dozowanie ogranicza nadwagę w każdym opakowaniu. W skali całej produkcji, nawet niewielkie zmniejszenie średniej nadwagi przekłada się na realną oszczędność surowca liczoną miesięcznie, nie jednostkowo.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="benefit-item">
-            <h3>
-              <button type="button" class="benefit-item__trigger" aria-expanded="false" aria-controls="benefit-panel-2" id="benefit-trigger-2">
-                <span class="benefit-item__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                </span>
-                <span class="benefit-item__title">Mniej przestojów</span>
-                <span class="benefit-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="benefit-item__panel" id="benefit-panel-2" role="region" aria-labelledby="benefit-trigger-2" hidden>
-              <div class="benefit-item__content">
-                <p>Systemy sygnalizacyjne i diagnostyczne informują obsługę o nieprawidłowościach w czasie rzeczywistym — zanim doprowadzą do dłuższego zatrzymania linii. Każda minuta przestoju produkcji to koszt, którego można uniknąć wcześniejszą reakcją.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="benefit-item">
-            <h3>
-              <button type="button" class="benefit-item__trigger" aria-expanded="false" aria-controls="benefit-panel-3" id="benefit-trigger-3">
-                <span class="benefit-item__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16V9"/><path d="M12 16v-5"/><path d="M16 16V7"/></svg>
-                </span>
-                <span class="benefit-item__title">Dane produkcyjne i zgodność z przepisami</span>
-                <span class="benefit-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="benefit-item__panel" id="benefit-panel-3" role="region" aria-labelledby="benefit-trigger-3" hidden>
-              <div class="benefit-item__content">
-                <p>Nowoczesne systemy rejestrują dane o każdej odważonej porcji — średnią wagę, odchylenia, liczbę odrzuceń. To ułatwia bieżącą kontrolę jakości, ograniczanie odpadu i wykazanie zgodności z wymaganiami dotyczącymi ilości nominalnych.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="benefit-item">
-            <h3>
-              <button type="button" class="benefit-item__trigger" aria-expanded="false" aria-controls="benefit-panel-4" id="benefit-trigger-4">
-                <span class="benefit-item__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="8.5" y="13" width="7" height="7" rx="1.5"/><path d="M10 7.5h4M12 11v2"/></svg>
-                </span>
-                <span class="benefit-item__title">Uproszczona integracja linii</span>
-                <span class="benefit-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="benefit-item__panel" id="benefit-panel-4" role="region" aria-labelledby="benefit-trigger-4" hidden>
-              <div class="benefit-item__content">
-                <p>Zamiast koordynować wielu dostawców osobno — wagę, systemy podające, dystrybucyjne i pakujące — kompleksowe podejście do całej linii upraszcza planowanie, ogranicza liczbę punktów styku i ułatwia harmonogramowanie wdrożenia.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="benefit-item">
-            <h3>
-              <button type="button" class="benefit-item__trigger" aria-expanded="false" aria-controls="benefit-panel-5" id="benefit-trigger-5">
-                <span class="benefit-item__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M12 4v16"/><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg>
-                </span>
-                <span class="benefit-item__title">Elastyczność produkcji</span>
-                <span class="benefit-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="benefit-item__panel" id="benefit-panel-5" role="region" aria-labelledby="benefit-trigger-5" hidden>
-              <div class="benefit-item__content">
-                <p>Jeden dobrze skonfigurowany system pozwala obsłużyć różne formaty opakowań i receptury bez konieczności budowania osobnej linii dla każdego produktu — co ma znaczenie przy sezonowych zmianach asortymentu.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sekcja 6 -->
-    <section id="legalizacja-kalibracja" class="section section-bg section-bg--compare">
-      <div class="section-bg__orb section-bg__orb--1" aria-hidden="true"></div>
-      <div class="container container--wide">
-        <header class="section-header">
-          <p class="eyebrow"><span class="eyebrow__num">05</span> Wymagania i serwis</p>
-          <h2>Legalizacja i kalibracja wag przemysłowych</h2>
-          <p class="section-lead">Zakup wagi to początek — dalej trzeba utrzymać jej dokładność zgodnie z przepisami.</p>
-        </header>
-
-        <div class="split split--text-left">
-          <div class="split__content">
-            <div class="info-cards">
-              <div class="info-card">
-                <h3>Legalizacja wag</h3>
-                <p>Wagi używane w obrocie handlowym, czyli wpływające na ilość towaru sprzedawanego klientowi, podlegają w Polsce obowiązkowej legalizacji zgodnie z przepisami metrologicznymi. Legalizacja potwierdza, że waga spełnia wymagania dokładności określone prawem.</p>
-              </div>
-              <div class="info-card">
-                <h3>Harmonogram przeglądów i wzorcowania</h3>
-                <p>Regularne wzorcowanie i przeglądy techniczne pozwalają wychwycić odchylenia dokładności, zanim wpłyną na jakość produkcji. Częstotliwość zależy od intensywności użytkowania i wymagań danej branży.</p>
-              </div>
-              <div class="info-card">
-                <h3>Serwis gwarancyjny vs pogwarancyjny</h3>
-                <p>W okresie gwarancji naprawy i przeglądy zwykle pokrywa producent lub dostawca. Po jej zakończeniu warto mieć ustaloną umowę serwisową — regularne przeglądy wychodzą taniej niż awaryjny przestój linii.</p>
-              </div>
-              <div class="info-card">
-                <h3>Wsparcie techniczne</h3>
-                <p>Zdalna diagnostyka pozwala wielu producentom wskazać przyczynę usterki bez konieczności wysyłania technika na miejsce, a dostępność części zamiennych na magazynie skraca czas ewentualnego przestoju.</p>
-              </div>
-            </div>
-          </div>
-
-          <aside class="split__media">
-            <figure class="media-placeholder media-placeholder--side" aria-label="Legalizacja i kalibracja wag — placeholder graficzny">
-              <svg viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-                <rect width="320" height="420" rx="12" fill="#f0f9ff"/>
-                <path d="M160 60 L220 90 L220 150 L160 180 L100 150 L100 90 Z" fill="#fff" stroke="#0EA5E9" stroke-width="2"/>
-                <path d="M145 120 L155 135 L180 105" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                <rect x="80" y="210" width="160" height="8" rx="4" fill="#e0f2fe"/>
-                <rect x="80" y="240" width="120" height="8" rx="4" fill="#e0f2fe"/>
-                <rect x="80" y="270" width="140" height="8" rx="4" fill="#e0f2fe"/>
-                <rect x="80" y="310" width="160" height="60" rx="8" fill="#fff" stroke="#bae6fd" stroke-width="1.5"/>
-                <text x="160" y="345" text-anchor="middle" fill="#64748b" font-size="11" font-family="Inter, sans-serif">Wzorcowanie</text>
-                <text x="160" y="405" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="Inter, sans-serif">Placeholder graficzny</text>
-              </svg>
+        <div class="types-grid">
+          <article class="type-card reveal">
+            <figure class="type-card__media">
+              <img src="assets/img/multihead-weigher.webp" alt="Waga wielogłowicowa" width="800" height="600" loading="lazy" decoding="async">
             </figure>
-          </aside>
+            <div class="type-card__body">
+              <h3>Waga wielogłowicowa</h3>
+              <p>Najlepsza do produktów sypkich, kawałkowych lub o nieregularnym kształcie — chipsy, mrożone warzywa, kawałki mięsa, orzechy. Wysoka wydajność i powtarzalność przy dużych wolumenach.</p>
+              <a class="link-arrow" href="#rodzaje-porownanie">Dowiedz się więcej</a>
+            </div>
+          </article>
+
+          <article class="type-card reveal">
+            <figure class="type-card__media">
+              <img src="assets/img/checkweigher.webp" alt="Waga kontrolna checkweigher" width="800" height="600" loading="lazy" decoding="async">
+            </figure>
+            <div class="type-card__body">
+              <h3>Checkweigher</h3>
+              <p>Umieszczona w linii, kontroluje wagę już zapakowanego produktu w locie — eliminuje opakowania poza tolerancją zanim trafią do dystrybucji. Często łączona z wykrywaczem metalu.</p>
+              <a class="link-arrow" href="#rodzaje-porownanie">Dowiedz się więcej</a>
+            </div>
+          </article>
+
+          <article class="type-card reveal">
+            <figure class="type-card__media">
+              <img src="assets/img/semi-auto-weigher.webp" alt="Waga półautomatyczna" width="800" height="600" loading="lazy" decoding="async">
+            </figure>
+            <div class="type-card__body">
+              <h3>Waga półautomatyczna</h3>
+              <p>Rozwiązanie dla mniejszych linii i niższych wolumenów — operator wspomaga proces, a waga pilnuje precyzji. Niższy koszt wejścia niż pełna automatyzacja.</p>
+              <a class="link-arrow" href="#rodzaje-porownanie">Dowiedz się więcej</a>
+            </div>
+          </article>
+
+          <article class="type-card reveal">
+            <figure class="type-card__media">
+              <img src="assets/img/bulk-weigher.webp" alt="Bulk weigher — dozownik objętościowy" width="800" height="600" loading="lazy" decoding="async">
+            </figure>
+            <div class="type-card__body">
+              <h3>Bulk weigher</h3>
+              <p>Do dużych opakowań i big-bagów, gdzie liczy się przepustowość masy, a nie pojedyncza porcja konsumencka.</p>
+              <a class="link-arrow" href="#rodzaje-porownanie">Dowiedz się więcej</a>
+            </div>
+          </article>
         </div>
 
+        <div id="rodzaje-porownanie" class="compare-block reveal">
+          <h3>Które rozwiązanie pasuje do Ciebie?</h3>
+          <p class="section-text">Krótkie zestawienie: typ wagi → typowy produkt → typowa skala produkcji.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Typ wagi</th>
+                  <th scope="col">Typowy produkt</th>
+                  <th scope="col">Typowa skala produkcji</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Waga wielogłowicowa</td>
+                  <td>Chipsy, orzechy, mrożone warzywa, kawałki mięsa</td>
+                  <td>Duże wolumeny, wysoka prędkość linii</td>
+                </tr>
+                <tr>
+                  <td>Waga kontrolna (checkweigher)</td>
+                  <td>Gotowe opakowania dowolnego produktu</td>
+                  <td>Kontrola jakości na każdej linii pakującej</td>
+                </tr>
+                <tr>
+                  <td>Waga półautomatyczna</td>
+                  <td>Produkty specjalistyczne, małe serie</td>
+                  <td>Małe i średnie linie, niższe wolumeny</td>
+                </tr>
+                <tr>
+                  <td>Dozownik objętościowy (bulk weigher)</td>
+                  <td>Produkty sypkie do big-bagów i worków przemysłowych</td>
+                  <td>Wysoka przepustowość masy, opakowania zbiorcze</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Sekcja 7: FAQ -->
-    <section id="faq" class="section section-bg section-bg--faq" aria-labelledby="faq-heading">
-      <div class="section-bg__orb section-bg__orb--1" aria-hidden="true"></div>
-      <div class="container container--wide">
-        <header class="section-header">
-          <p class="eyebrow"><span class="eyebrow__num">06</span> FAQ</p>
-          <h2 id="faq-heading">Najczęściej zadawane pytania</h2>
-          <p class="section-lead">Odpowiedzi na pytania, które najczęściej pojawiają się przed wyborem wagi i wdrożeniem linii.</p>
+    <!-- Zastosowania -->
+    <section id="zastosowania" class="section section-apps" aria-labelledby="apps-heading">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2 id="apps-heading">Sprawdza się w wielu branżach.</h2>
+          <p class="section-text">Od pieczywa po chemię przemysłową — zasada jest ta sama, wyzwania różnią się produktem. Produkty lepkie, kruche lub o nieregularnym kształcie wymagają innego doboru głowic i prędkości pracy niż produkty jednorodne.</p>
+          <a class="link-arrow" href="#kontakt">Zapytaj o dobór do branży</a>
         </header>
 
-        <div class="faq-layout">
-          <div class="faq-accordion" data-accordion>
-          <article class="faq-item is-open">
-            <h3>
-              <button type="button" class="faq-item__trigger" aria-expanded="true" aria-controls="faq-panel-1" id="faq-trigger-1">
-                <span class="faq-item__num" aria-hidden="true">01</span>
-                <span class="faq-item__title">Czy każda waga jest taka sama, czy da się dopasować do mojego produktu?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="faq-item__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
-              <div class="faq-item__content">
-                <p>Nie ma jednego uniwersalnego rozwiązania — dobór wagi zależy od cech produktu (np. czy jest lepki, kruchy, mrożony), rodzaju opakowania, wymaganej wydajności oraz warunków produkcji (temperatura, wilgotność, wielkość hali). Dlatego większość wag wielogłowicowych jest indywidualnie dopasowywana do konkretnego zastosowania, nie sprzedawana jako gotowy, uniwersalny model.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <h3>
-              <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
-                <span class="faq-item__num" aria-hidden="true">02</span>
-                <span class="faq-item__title">Czym różni się waga wielogłowicowa od wagi kontrolnej (checkweighera)?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="faq-item__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2" hidden>
-              <div class="faq-item__content">
-                <p>Waga wielogłowicowa odmierza i dozuje produkt przed zapakowaniem. Waga kontrolna sprawdza już gotowe opakowanie w locie i eliminuje te, które wypadają poza tolerancję wagową, zanim trafią do dystrybucji. W praktyce oba rozwiązania często działają razem, jedno po drugim, w tej samej linii.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <h3>
-              <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
-                <span class="faq-item__num" aria-hidden="true">03</span>
-                <span class="faq-item__title">Co się dzieje, gdy waga ulegnie awarii?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="faq-item__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3" hidden>
-              <div class="faq-item__content">
-                <p>Nowoczesne systemy można spiąć w sieć i monitorować zdalnie, co pozwala szybciej zdiagnozować usterkę bez konieczności czekania na wizytę technika na miejscu. Regularna umowa serwisowa pozwala też z góry zaplanować koszty utrzymania i terminy przeglądów, zamiast reagować dopiero na awarię.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <h3>
-              <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-trigger-4">
-                <span class="faq-item__num" aria-hidden="true">04</span>
-                <span class="faq-item__title">Czy mogę przetestować wagę na moim produkcie przed zakupem?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="faq-item__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4" hidden>
-              <div class="faq-item__content">
-                <p>Tak — konsultacje przedsprzedażowe zwykle obejmują szczegółową analizę konkretnego produktu i jego wymagań (opakowanie, wydajność, warunki produkcji), często wraz z testami, zanim padnie decyzja o zakupie konkretnego modelu.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <h3>
-              <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-trigger-5">
-                <span class="faq-item__num" aria-hidden="true">05</span>
-                <span class="faq-item__title">Czy jedna waga poradzi sobie z różnymi produktami w tej samej linii?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="faq-item__panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5" hidden>
-              <div class="faq-item__content">
-                <p>Tak, o ile system został odpowiednio zaprojektowany — może obsłużyć różne receptury i formaty opakowań, co ma znaczenie przy sezonowych zmianach asortymentu.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <h3>
-              <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-6" id="faq-trigger-6">
-                <span class="faq-item__num" aria-hidden="true">06</span>
-                <span class="faq-item__title">Jak długo trwa wdrożenie całej linii ważąco-pakującej?</span>
-                <span class="faq-item__chevron" aria-hidden="true"></span>
-              </button>
-            </h3>
-            <div class="faq-item__panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6" hidden>
-              <div class="faq-item__content">
-                <p>Zależy od złożoności projektu, ale cały proces — od pierwszej rozmowy, przez planowanie i dobór komponentów, po uruchomienie — zwykle prowadzi jedna osoba koordynująca po stronie dostawcy, co skraca czas wdrożenia i ułatwia komunikację.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-          <aside class="faq-mark" aria-hidden="true">
-            <span class="faq-mark__glyph">?</span>
-          </aside>
+        <div class="apps-grid">
+          <figure class="app-card reveal">
+            <img src="assets/img/bakery.webp" alt="Pieczywo i wyroby piekarnicze" width="800" height="600" loading="lazy" decoding="async">
+            <figcaption>Pieczywo i zboża</figcaption>
+          </figure>
+          <figure class="app-card reveal">
+            <img src="assets/img/meat-fish.webp" alt="Mięso, drób i ryby" width="800" height="600" loading="lazy" decoding="async">
+            <figcaption>Mięso i ryby</figcaption>
+          </figure>
+          <figure class="app-card reveal">
+            <img src="assets/img/vegetables-fruit.webp" alt="Warzywa i owoce" width="800" height="600" loading="lazy" decoding="async">
+            <figcaption>Warzywa i owoce</figcaption>
+          </figure>
+          <figure class="app-card reveal">
+            <img src="assets/img/nuts.webp" alt="Orzechy, bakalie, przekąski" width="800" height="600" loading="lazy" decoding="async">
+            <figcaption>Orzechy i przekąski</figcaption>
+          </figure>
+          <figure class="app-card reveal">
+            <img src="assets/img/sweets.webp" alt="Słodycze i wyroby cukiernicze" width="800" height="600" loading="lazy" decoding="async">
+            <figcaption>Słodycze</figcaption>
+          </figure>
+          <figure class="app-card reveal">
+            <img src="assets/img/frozen.webp" alt="Produkty mrożone" width="800" height="600" loading="lazy" decoding="async">
+            <figcaption>Produkty mrożone</figcaption>
+          </figure>
+          <figure class="app-card reveal">
+            <img src="assets/img/non-food.webp" alt="Chemia, farmaceutyki, karma" width="800" height="600" loading="lazy" decoding="async">
+            <figcaption>Non-food</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- Sekcja 8 -->
-    <section id="kontakt" class="section section-bg section-bg--contact" aria-labelledby="kontakt-heading">
-      <div class="section-bg__orb section-bg__orb--1" aria-hidden="true"></div>
-      <div class="container container--wide container--contact">
-        <div class="contact-grid contact-grid--sleever">
-          <div class="contact-info">
-            <p class="eyebrow"><span class="eyebrow__num">07</span> Kontakt i oferta</p>
-            <h2 id="kontakt-heading">SPOLEX — kompleksowe rozwiązania naważania i pakowania</h2>
-            <p class="contact-intro">SPOLEX dostarcza kompletne rozwiązania dla linii pakujących — od naważania i dozowania, przez owijanie i etykietowanie, po pakowanie zbiorcze. Doradzamy w doborze sprzętu do konkretnego produktu i skali produkcji.</p>
+    <!-- Korzyści -->
+    <section id="korzysci" class="section section-benefits" aria-labelledby="benefits-heading">
+      <div class="section-benefits__bg" aria-hidden="true">
+        <img src="assets/img/production-line-bg.webp" alt="">
+      </div>
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <h2 id="benefits-heading">Co zyskujesz?</h2>
+          <p class="section-text">Automatyzacja procesu ważenia to nie tylko szybkość — to mierzalny wpływ na koszty, jakość i zgodność z przepisami.</p>
+        </header>
 
-            <div class="contact-direct">
-              <p class="contact-direct__label">Bezpośredni kontakt</p>
-              <p class="contact-brand">Spolex Sp. z o.o.</p>
-              <p class="contact-address">
-                ul. Rzemieślnicza 13<br>
-                05-082 Blizne Łaszczyńskiego, Polska
-              </p>
-              <p class="contact-link-row">
-                <a href="tel:+48223517191">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  22 351 71 91
-                </a>
-              </p>
-              <p class="contact-link-row">
-                <a href="mailto:biuro@spolex.com">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                  biuro@spolex.com
-                </a>
-              </p>
+        <div class="benefits-grid">
+          <article class="benefit-card reveal">
+            <span class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18"/><path d="M5 10h14"/><path d="M8 10l4-7 4 7"/></svg>
+            </span>
+            <h3>Mniejsze straty</h3>
+            <p>Precyzyjne dozowanie ogranicza nadwagę w każdym opakowaniu — nawet niewielkie zmniejszenie średniej nadwagi przekłada się na realną oszczędność surowca.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16V9"/><path d="M12 16v-5"/><path d="M16 16V7"/></svg>
+            </span>
+            <h3>Wyższa wydajność</h3>
+            <p>Systemy sygnalizacyjne informują o nieprawidłowościach w czasie rzeczywistym — zanim doprowadzą do dłuższego zatrzymania linii.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <h3>Powtarzalna dokładność</h3>
+            <p>Nowoczesne systemy rejestrują dane o każdej porcji — ułatwia to kontrolę jakości i wykazanie zgodności z wymaganiami dotyczącymi ilości nominalnych.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="8.5" y="13" width="7" height="7" rx="1.5"/></svg>
+            </span>
+            <h3>Łatwa integracja</h3>
+            <p>Kompleksowe podejście do całej linii upraszcza planowanie, ogranicza liczbę punktów styku i ułatwia harmonogramowanie wdrożenia.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <span class="benefit-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16"/><path d="M12 4v16"/><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg>
+            </span>
+            <h3>Elastyczność</h3>
+            <p>Jeden dobrze skonfigurowany system obsługuje różne formaty opakowań i receptury — ważne przy sezonowych zmianach asortymentu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legalizacja -->
+    <section id="legalizacja-kalibracja" class="section section-service" aria-labelledby="service-heading">
+      <div class="container service-grid">
+        <div class="service-copy reveal">
+          <p class="eyebrow">Compliance i serwis</p>
+          <h2 id="service-heading">Legalizacja, wzorcowanie i serwis.</h2>
+          <p class="section-text">Zakup wagi to początek — dalej trzeba utrzymać jej dokładność zgodnie z przepisami. Wagi używane w obrocie handlowym podlegają w Polsce obowiązkowej legalizacji zgodnie z przepisami metrologicznymi.</p>
+          <a class="btn btn--primary" href="#kontakt">
+            Dowiedz się więcej
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+        </div>
+
+        <div class="service-cards reveal">
+          <article class="service-card">
+            <figure class="service-card__media">
+              <img src="assets/img/calibration-weight.webp" alt="Legalizacja i wzorcowanie wag" width="600" height="400" loading="lazy" decoding="async">
+            </figure>
+            <div class="service-card__body">
+              <h3>Legalizacja</h3>
+              <p>Legalizacja potwierdza, że waga spełnia wymagania dokładności określone prawem dla obrotu handlowego.</p>
             </div>
+          </article>
+          <article class="service-card">
+            <figure class="service-card__media">
+              <img src="assets/img/calibration-weight.webp" alt="Wzorcowanie wag przemysłowych" width="600" height="400" loading="lazy" decoding="async">
+            </figure>
+            <div class="service-card__body">
+              <h3>Wzorcowanie</h3>
+              <p>Regularne wzorcowanie i przeglądy techniczne pozwalają wychwycić odchylenia dokładności, zanim wpłyną na jakość produkcji.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <figure class="service-card__media">
+              <img src="assets/img/service-detail.webp" alt="Serwis wag przemysłowych" width="600" height="400" loading="lazy" decoding="async">
+            </figure>
+            <div class="service-card__body">
+              <h3>Serwis</h3>
+              <p>Zdalna diagnostyka i umowa serwisowa skracają czas przestoju — regularne przeglądy wychodzą taniej niż awaryjne naprawy.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <ul class="contact-benefits">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
-                Bez zobowiązania – wstępna konsultacja
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
-                Odpowiedź po polsku od zespołu integratora
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
-                Wdrożenia w całej Polsce
-              </li>
-            </ul>
+    <!-- FAQ + Kontakt -->
+    <section class="section section-faq-contact" aria-labelledby="faq-heading">
+      <div class="container faq-contact-grid">
+        <div id="faq" class="faq-col">
+          <p class="eyebrow reveal">Najczęściej zadawane pytania</p>
+          <h2 id="faq-heading" class="reveal">FAQ</h2>
+          <div class="faq-columns" data-accordion>
+            <article class="faq-item is-open reveal">
+              <h3>
+                <button type="button" class="faq-item__trigger" aria-expanded="true" aria-controls="faq-panel-1" id="faq-trigger-1">
+                  <span class="faq-item__title">Czy każda waga jest taka sama, czy da się dopasować do mojego produktu?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-item__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+                <div class="faq-item__content">
+                  <p>Nie ma jednego uniwersalnego rozwiązania — dobór wagi zależy od cech produktu (np. czy jest lepki, kruchy, mrożony), rodzaju opakowania, wymaganej wydajności oraz warunków produkcji. Dlatego większość wag wielogłowicowych jest indywidualnie dopasowywana do konkretnego zastosowania.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+                  <span class="faq-item__title">Czym różni się waga wielogłowicowa od wagi kontrolnej (checkweighera)?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-item__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2" hidden>
+                <div class="faq-item__content">
+                  <p>Waga wielogłowicowa odmierza i dozuje produkt przed zapakowaniem. Waga kontrolna sprawdza już gotowe opakowanie w locie i eliminuje te, które wypadają poza tolerancję wagową. W praktyce oba rozwiązania często działają razem w tej samej linii.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+                  <span class="faq-item__title">Co się dzieje, gdy waga ulegnie awarii?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-item__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3" hidden>
+                <div class="faq-item__content">
+                  <p>Nowoczesne systemy można spiąć w sieć i monitorować zdalnie, co pozwala szybciej zdiagnozować usterkę. Regularna umowa serwisowa pozwala też z góry zaplanować koszty utrzymania i terminy przeglądów.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-trigger-4">
+                  <span class="faq-item__title">Czy mogę przetestować wagę na moim produkcie przed zakupem?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-item__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4" hidden>
+                <div class="faq-item__content">
+                  <p>Tak — konsultacje przedsprzedażowe zwykle obejmują szczegółową analizę konkretnego produktu i jego wymagań, często wraz z testami, zanim padnie decyzja o zakupie konkretnego modelu.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-trigger-5">
+                  <span class="faq-item__title">Czy jedna waga poradzi sobie z różnymi produktami w tej samej linii?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-item__panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5" hidden>
+                <div class="faq-item__content">
+                  <p>Tak, o ile system został odpowiednio zaprojektowany — może obsłużyć różne receptury i formaty opakowań, co ma znaczenie przy sezonowych zmianach asortymentu.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item reveal">
+              <h3>
+                <button type="button" class="faq-item__trigger" aria-expanded="false" aria-controls="faq-panel-6" id="faq-trigger-6">
+                  <span class="faq-item__title">Jak długo trwa wdrożenie całej linii ważąco-pakującej?</span>
+                  <span class="faq-item__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq-item__panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6" hidden>
+                <div class="faq-item__content">
+                  <p>Zależy od złożoności projektu, ale cały proces — od pierwszej rozmowy, przez planowanie i dobór komponentów, po uruchomienie — zwykle prowadzi jedna osoba koordynująca po stronie dostawcy.</p>
+                </div>
+              </div>
+            </article>
           </div>
+        </div>
+
+        <div id="kontakt" class="contact-col reveal" aria-labelledby="contact-heading">
+          <p class="eyebrow">Skontaktuj się z nami</p>
+          <h2 id="contact-heading">Nie wiesz, jakie rozwiązanie<br>sprawdzi się w Twojej produkcji?</h2>
+          <p class="section-text">SPOLEX dostarcza kompletne rozwiązania dla linii pakujących — od naważania i dozowania, przez owijanie i etykietowanie, po pakowanie zbiorcze.</p>
+
+          <ul class="contact-quick">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+48223517191">22 351 71 91</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:biuro@spolex.com">biuro@spolex.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+              <span>ul. Rzemieślnicza 13, 05-082 Blizne Łaszczyńskiego</span>
+            </li>
+          </ul>
 
           <div class="contact-form-wrap">
-            <h3>Formularz kontaktowy</h3>
             <form class="contact-form" id="contact-form" action="mail.php" method="post" novalidate>
               <div class="form-group form-honeypot" aria-hidden="true">
                 <label for="website">Strona WWW</label>
@@ -702,10 +580,12 @@
               <div class="form-group">
                 <label for="message">Opis potrzeby <span class="required">*</span></label>
                 <textarea id="message" name="message" rows="4" placeholder="Rodzaj produktu, wydajność, obecna linia…" required></textarea>
-                <p class="form-hint">Im więcej szczegółów (rodzaj produktu, wydajność, obecna linia), tym trafniejsza propozycja.</p>
               </div>
               <p class="form-privacy">Wysyłając formularz, wyrażasz zgodę na kontakt w odpowiedzi na wiadomość. <a href="https://www.spolex.com/" target="_blank" rel="noopener noreferrer">Polityka prywatności</a>.</p>
-              <button type="submit" class="btn-submit btn-submit--full" id="contact-submit">Wyślij wiadomość</button>
+              <button type="submit" class="btn btn--primary btn-submit" id="contact-submit">
+                Wyślij wiadomość
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </button>
               <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
             </form>
           </div>
@@ -716,32 +596,27 @@
   </main>
 
   <footer class="site-footer" role="contentinfo">
-    <div class="container container--wide">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <p class="footer-lead">Autoryzowany partner Yamato</p>
-          <p class="footer-desc">Dostarczamy, instalujemy, uruchamiamy i serwisujemy wagi oraz linie naważające Yamato</p>
-        </div>
-        <div class="footer-col">
-          <p class="footer-label">Kontakt</p>
-          <p class="footer-desc">Tel.: <a href="tel:+48223517191">22 351 71 91</a></p>
-          <p class="footer-desc">E-mail: <a href="mailto:biuro@spolex.com">biuro@spolex.com</a></p>
-          <p class="footer-desc">
-            <a class="footer-link-arrow" href="https://www.spolex.com/" target="_blank" rel="noopener noreferrer">
-              www.spolex.com
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-            </a>
-          </p>
-        </div>
-        <div class="footer-col">
-          <p class="footer-label">Adres</p>
-          <p class="footer-desc">Spolex Sp. z o.o.<br>ul. Rzemieślnicza 13<br>05-082 Blizne Łaszczyńskiego, Polska</p>
-        </div>
+    <div class="container footer-inner">
+      <a class="site-logo site-logo--footer" href="#hero">
+        <span class="site-logo__name">nawazanie.pl</span>
+        <span class="site-logo__sub">by SPOLEX</span>
+      </a>
+      <nav class="footer-nav" aria-label="Nawigacja stopki">
+        <a href="#jak-to-dziala">Jak to działa</a>
+        <a href="#rodzaje-wag">Rodzaje wag</a>
+        <a href="#zastosowania">Zastosowania</a>
+        <a href="#korzysci">Korzyści</a>
+        <a href="#legalizacja-kalibracja">Legalizacja</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="footer-meta">
+        <a href="https://www.spolex.com/pl/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">Polityka prywatności</a>
+        <span>Realizacja: SPOLEX</span>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Autoryzowany partner Yamato w Polsce. Wszelkie prawa zastrzeżone.</p>
-        <p>Maszyny Yamato – Yamato Scale.</p>
-      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Autoryzowany partner Yamato w Polsce. Wszelkie prawa zastrzeżone.</p>
     </div>
   </footer>
 
