@@ -6,6 +6,7 @@
   <title>Naważanie — precyzyjne dozowanie i kontrola wagi w produkcji | nawazanie.pl</title>
   <meta name="description" content="Naważanie to proces odmierzania określonej ilości produktu przed pakowaniem. Dowiedz się, jak działają wagi wielogłowicowa, jak dobrać system do linii produkcyjnej oraz jakie wymagania dotyczą legalizacji i kalibracji wag przemysłowych.">
   <meta name="theme-color" content="#0284C7">
+  <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -188,6 +189,11 @@
             </div>
             <figure class="process-diagram__image">
               <img src="assets/img/weighing-line.webp" alt="Schemat linii naważania — podanie, ważenie, kanały, zrzut i higiena" width="1200" height="675" loading="lazy" decoding="async">
+              <span class="process-marker" style="--x: 7%; --y: 66%" aria-hidden="true"></span>
+              <span class="process-marker" style="--x: 48%; --y: 46%" aria-hidden="true"></span>
+              <span class="process-marker" style="--x: 48%; --y: 81%" aria-hidden="true"></span>
+              <span class="process-marker" style="--x: 88%; --y: 75%" aria-hidden="true"></span>
+              <span class="process-marker" style="--x: 49%; --y: 18%" aria-hidden="true"></span>
             </figure>
           </div>
 
@@ -440,13 +446,15 @@
       </div>
     </section>
 
-    <!-- FAQ + Kontakt -->
-    <section class="section section-faq-contact" aria-labelledby="faq-heading">
-      <div class="container faq-contact-grid">
-        <div id="faq" class="faq-col">
-          <p class="eyebrow reveal">Najczęściej zadawane pytania</p>
-          <h2 id="faq-heading" class="reveal">FAQ</h2>
-          <div class="faq-columns" data-accordion>
+    <!-- FAQ -->
+    <section id="faq" class="section section-faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num">07</span> FAQ</p>
+          <h2 id="faq-heading">Najczęściej zadawane pytania o naważanie</h2>
+          <p class="section-text">Krótkie odpowiedzi na typowe pytania dotyczące procesu, typów wag, legalizacji i wdrożenia w produkcji.</p>
+        </div>
+        <div class="faq-list" data-accordion>
             <article class="faq-item is-open reveal">
               <h3>
                 <button type="button" class="faq-item__trigger" aria-expanded="true" aria-controls="faq-panel-1" id="faq-trigger-1">
@@ -530,65 +538,95 @@
                 </div>
               </div>
             </article>
-          </div>
         </div>
+      </div>
+    </section>
 
-        <div id="kontakt" class="contact-col reveal" aria-labelledby="contact-heading">
-          <p class="eyebrow">Skontaktuj się z nami</p>
-          <h2 id="contact-heading">Nie wiesz, jakie rozwiązanie<br>sprawdzi się w Twojej produkcji?</h2>
-          <p class="section-text">SPOLEX dostarcza kompletne rozwiązania dla linii pakujących — od naważania i dozowania, przez owijanie i etykietowanie, po pakowanie zbiorcze.</p>
+    <!-- Kontakt + formularz -->
+    <section id="kontakt" class="section section-kontakt" aria-labelledby="kontakt-heading">
+      <div class="contact-section-bg" aria-hidden="true">
+        <span class="contact-section-bg__grid"></span>
+        <span class="contact-section-bg__orb"></span>
+      </div>
+      <div class="container contact-grid">
+        <div class="contact-intro reveal">
+          <p class="eyebrow"><span class="eyebrow__num">08</span> Kontakt</p>
+          <h2 id="kontakt-heading">Skontaktuj się w sprawie rozwiązań do naważania</h2>
+          <p class="contact-lead">Jeśli planujesz wdrożenie wagi lub linii do naważania, opisz produkt i oczekiwaną wydajność — pomożemy dobrać typ wagi, konfigurację linii i moduły dodatkowe.</p>
 
-          <ul class="contact-quick">
+          <div class="contact-direct">
+            <p class="contact-direct__label">Bezpośredni kontakt</p>
+            <p class="contact-direct__company">Spolex Sp. z o.o.</p>
+            <p class="contact-direct__address">
+              ul. Rzemieślnicza 13<br>
+              05-082 Blizne Łaszczyńskiego, Polska
+            </p>
+            <p class="contact-direct__phone">
+              <a href="tel:+48223517191">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                22 351 71 91
+              </a>
+            </p>
+            <p class="contact-direct__email">
+              <a href="mailto:biuro@spolex.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                biuro@spolex.com
+              </a>
+            </p>
+          </div>
+
+          <ul class="contact-points">
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <a href="tel:+48223517191">22 351 71 91</a>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
+              Bez zobowiązania – wstępna konsultacja
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              <a href="mailto:biuro@spolex.com">biuro@spolex.com</a>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
+              Odpowiedź po polsku od zespołu integratora
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
-              <span>ul. Rzemieślnicza 13, 05-082 Blizne Łaszczyńskiego</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
+              Wdrożenia w całej Polsce
             </li>
           </ul>
+        </div>
 
-          <div class="contact-form-wrap">
-            <form class="contact-form" id="contact-form" action="mail.php" method="post" novalidate>
-              <div class="form-group form-honeypot" aria-hidden="true">
-                <label for="website">Strona WWW</label>
-                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        <div class="contact-form-panel reveal">
+          <form class="contact-form" id="contact-form" action="mail.php" method="post" novalidate>
+            <div class="form-group form-honeypot" aria-hidden="true">
+              <label for="website">Strona WWW</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="name">Imię i nazwisko <span class="required">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="company">Firma <span class="required">*</span></label>
+              <input type="text" id="company" name="company" required autocomplete="organization">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">E-mail <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" inputmode="email">
               </div>
               <div class="form-group">
-                <label for="name">Imię i nazwisko <span class="required">*</span></label>
-                <input type="text" id="name" name="name" required autocomplete="name">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel">
               </div>
-              <div class="form-group">
-                <label for="company">Firma <span class="required">*</span></label>
-                <input type="text" id="company" name="company" required autocomplete="organization">
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="email">E-mail <span class="required">*</span></label>
-                  <input type="email" id="email" name="email" required autocomplete="email">
-                </div>
-                <div class="form-group">
-                  <label for="phone">Telefon</label>
-                  <input type="tel" id="phone" name="phone" autocomplete="tel">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="message">Opis potrzeby <span class="required">*</span></label>
-                <textarea id="message" name="message" rows="4" placeholder="Rodzaj produktu, wydajność, obecna linia…" required></textarea>
-              </div>
-              <p class="form-privacy">Wysyłając formularz, wyrażasz zgodę na kontakt w odpowiedzi na wiadomość. <a href="https://www.spolex.com/" target="_blank" rel="noopener noreferrer">Polityka prywatności</a>.</p>
-              <button type="submit" class="btn btn--primary btn-submit" id="contact-submit">
-                Wyślij wiadomość
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-              </button>
-              <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
-            </form>
-          </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Produkt / wydajność / wiadomość <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Np. chipsy, ok. 80 porcji/min, waga wielogłowicowa + checkweigher" required></textarea>
+              <p class="form-hint">Im więcej szczegółów (produkt, format opakowania, wydajność), tym trafniejsza propozycja.</p>
+            </div>
+            <p class="form-privacy">Wysyłając formularz, wyrażasz zgodę na kontakt w odpowiedzi na wiadomość. <a href="https://www.spolex.com/pl/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">Polityka prywatności</a>.</p>
+            <button type="submit" class="btn btn--primary btn-submit" id="contact-submit">
+              Wyślij wiadomość
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+          </form>
         </div>
       </div>
     </section>
@@ -596,27 +634,28 @@
   </main>
 
   <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <a class="site-logo site-logo--footer" href="#hero">
-        <span class="site-logo__name">nawazanie.pl</span>
-        <span class="site-logo__sub">by SPOLEX</span>
-      </a>
-      <nav class="footer-nav" aria-label="Nawigacja stopki">
-        <a href="#jak-to-dziala">Jak to działa</a>
-        <a href="#rodzaje-wag">Rodzaje wag</a>
-        <a href="#zastosowania">Zastosowania</a>
-        <a href="#korzysci">Korzyści</a>
-        <a href="#legalizacja-kalibracja">Legalizacja</a>
-        <a href="#faq">FAQ</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <div class="footer-meta">
-        <a href="https://www.spolex.com/pl/polityka-prywatnosci/" target="_blank" rel="noopener noreferrer">Polityka prywatności</a>
-        <span>Realizacja: SPOLEX</span>
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-lead">Autoryzowany partner Yamato</p>
+        <p class="footer-desc">Dostarczamy, instalujemy, uruchamiamy i serwisujemy wagi oraz linie do naważania Yamato</p>
       </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>&copy; <span id="year"></span> Autoryzowany partner Yamato w Polsce. Wszelkie prawa zastrzeżone.</p>
+      <div>
+        <p class="footer-label">Kontakt</p>
+        <div class="footer-desc">
+          <p>Tel.: <a href="tel:+48223517191">22 351 71 91</a></p>
+          <p>E-mail: <a href="mailto:biuro@spolex.com">biuro@spolex.com</a></p>
+          <p>
+            <a href="https://www.spolex.com/" class="link-arrow footer-spolex-link" target="_blank" rel="noopener noreferrer">
+              www.spolex.com
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </p>
+        </div>
+      </div>
+      <div>
+        <p class="footer-label">Adres</p>
+        <p class="footer-desc">Spolex Sp. z o.o.<br>ul. Rzemieślnicza 13<br>05-082 Blizne Łaszczyńskiego, Polska</p>
+      </div>
     </div>
   </footer>
 
@@ -624,6 +663,10 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/motion.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

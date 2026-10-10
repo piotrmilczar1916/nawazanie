@@ -53,7 +53,11 @@
 
   if (toTop) {
     toTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.lenis) {
+        window.lenis.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
   }
 
@@ -120,6 +124,7 @@
     document.querySelectorAll(
       '.reveal, .type-card, .benefit-card, .app-card, .service-card, .faq-item, .compare-block'
     ).forEach(function (el, i) {
+      if (el.hasAttribute('data-motion')) return;
       if (!el.classList.contains('reveal')) {
         el.classList.add('reveal');
       }
