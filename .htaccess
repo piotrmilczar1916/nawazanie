@@ -1,0 +1,68 @@
+# nawazanie.pl – konfiguracja Apache / LiteSpeed (cyber_Folks)
+# Wersja kanoniczna: https://nawazanie.pl/ (HTTPS, bez www)
+
+AddDefaultCharset UTF-8
+
+# --- Typy MIME ---
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/avif .avif
+  AddType image/svg+xml .svg
+  AddType image/x-icon .ico
+  AddType video/mp4 .mp4
+  AddType application/xml .xml
+  AddCharset UTF-8 .html .css .js .xml .txt .svg
+</IfModule>
+
+# --- Przekierowania 301: HTTPS + bez www + /index.html -> / ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # www.nawazanie.pl -> https://nawazanie.pl
+  RewriteCond %{HTTP_HOST} ^www\.nawazanie\.pl$ [NC]
+  RewriteRule ^(.*)$ https://nawazanie.pl/$1 [R=301,L]
+
+  # http -> https (uwzględnia serwery za proxy)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # /index.html -> / (tylko bezpośrednie żądania, bez pętli)
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+</IfModule>
+
+# --- Blokada plików roboczych, których nie powinno być publicznie ---
+RedirectMatch 404 /\.(git|claude|DS_Store)
+RedirectMatch 404 ^/_
+
+# --- Kompresja ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Cache przeglądarki ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/plain "access plus 1 day"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(html|php)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

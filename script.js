@@ -122,7 +122,7 @@
     );
 
     document.querySelectorAll(
-      '.reveal, .type-card, .benefit-card, .app-card, .service-card, .faq-item, .compare-block'
+      '.reveal, .model, .step, .app-card, .benefit, .faq-item'
     ).forEach(function (el, i) {
       if (el.hasAttribute('data-motion')) return;
       if (!el.classList.contains('reveal')) {
@@ -172,12 +172,60 @@
     });
   });
 
+  /* CTA „Zapytaj o …” zaznacza model w formularzu */
+  document.querySelectorAll('[data-model]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var value = link.getAttribute('data-model');
+      document.querySelectorAll('input[name="model"]').forEach(function (radio) {
+        radio.checked = radio.value === value;
+      });
+    });
+  });
+
+  /* Wideo YouTube ładowane dopiero po kliknięciu */
+  document.querySelectorAll('[data-youtube]').forEach(function (frame) {
+    var button = frame.querySelector('.video-play');
+    if (!button) return;
+
+    button.addEventListener('click', function () {
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + frame.getAttribute('data-youtube') + '?autoplay=1&rel=0';
+      iframe.title = button.getAttribute('aria-label').replace('Odtwórz film: ', '');
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+      iframe.focus();
+    });
+  });
+
+  /* Wideo z plików: ten sam przycisk co przy YouTube, kontrolki po starcie */
+  document.querySelectorAll('[data-video]').forEach(function (frame) {
+    var video = frame.querySelector('video');
+    var button = frame.querySelector('.video-play');
+    if (!video || !button) return;
+
+    video.controls = false;
+    frame.classList.add('is-enhanced');
+
+    button.addEventListener('click', function () {
+      button.remove();
+      video.controls = true;
+      video.focus();
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    });
+  });
+
   /* Formularz kontaktowy → mail.php */
   var contactForm = document.getElementById('contact-form');
   var formStatus = document.getElementById('form-status');
   var submitBtn = document.getElementById('contact-submit');
 
   if (contactForm && formStatus && submitBtn) {
+    var submitHtml = submitBtn.innerHTML;
+
     contactForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -220,7 +268,7 @@
         })
         .finally(function () {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Wyślij wiadomość';
+          submitBtn.innerHTML = submitHtml;
         });
     });
   }

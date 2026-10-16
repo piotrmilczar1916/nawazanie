@@ -52,6 +52,13 @@ $email = isset($_POST['email']) ? trim((string) $_POST['email']) : '';
 $phone = isset($_POST['phone']) ? clean((string) $_POST['phone']) : '';
 $message = isset($_POST['message']) ? trim(strip_tags((string) $_POST['message'])) : '';
 
+/** Wybór modelu z formularza — tylko wartości z listy */
+const MODELS = ['Yamato Epsilon', 'Yamato TSD-N314', 'Potrzebuję pomocy w doborze'];
+$model = isset($_POST['model']) ? clean((string) $_POST['model']) : '';
+if (!in_array($model, MODELS, true)) {
+    $model = 'Nie wskazano';
+}
+
 $errors = [];
 
 if ($name === '' || mb_strlen($name) < 2) {
@@ -84,6 +91,7 @@ $bodyLines = [
     'Firma:           ' . $company,
     'E-mail:          ' . $email,
     'Telefon:         ' . ($phone !== '' ? $phone : '—'),
+    'Model:           ' . $model,
     '',
     'Opis potrzeby:',
     $message,

@@ -32,7 +32,7 @@
   /* Po wejściu: przywraca hover (transform/transition z CSS) */
   function done(els) {
     gsap.set(els, { clearProps: 'transform,opacity,clipPath' });
-    [].concat(els).forEach(function (el) { el.classList.add('motion-done'); });
+    els.forEach(function (el) { el.classList.add('motion-done'); });
   }
 
   /* Jednorazowe wejście w widok */
@@ -64,7 +64,7 @@
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
   gsap.ticker.lagSmoothing(0);
-  // Wymiary Lenisa aktualne po każdym przeliczeniu (pin, obrazy, fonty)
+  // Wymiary Lenisa aktualne po każdym przeliczeniu (obrazy, fonty)
   ScrollTrigger.addEventListener('refresh', function () { lenis.resize(); });
 
   /* Kotwice przez Lenis z offsetem pod nagłówek */
@@ -91,12 +91,12 @@
     }).observe(navToggle, { attributes: true, attributeFilter: ['aria-expanded'] });
   }
 
-  /* ---------- 1. Hero ---------- */
+  /* ---------- Hero ---------- */
   var hero = $('#hero');
   if (hero) {
     var heroCopy = claim($('.hero-copy', hero));
     var heroVisual = claim($('.hero-visual', hero));
-    var heroProofs = claim($('.hero-proofs', hero));
+    var heroFacts = claim($('.hero-facts', hero));
     var h1 = $('h1', heroCopy);
     var h1Html = h1.innerHTML;
 
@@ -106,10 +106,10 @@
       Array.prototype.slice.call(h1.childNodes).forEach(function (node) {
         if (node.nodeType === 3) {
           node.textContent.split(/\s+/).filter(Boolean).forEach(function (w) { words.push({ text: w, cls: '' }); });
-        } else if (node.nodeType === 1 && node.tagName !== 'BR') {
-          node.textContent.split(/\s+/).filter(Boolean).forEach(function (w) { words.push({ text: w, cls: node.className }); });
-        } else if (node.tagName === 'BR') {
+        } else if (node.nodeType === 1 && node.tagName === 'BR') {
           words.push({ br: true });
+        } else if (node.nodeType === 1) {
+          node.textContent.split(/\s+/).filter(Boolean).forEach(function (w) { words.push({ text: w, cls: node.className }); });
         }
       });
       h1.innerHTML = '';
@@ -144,217 +144,111 @@
     })();
 
     var h1Lines = $$('.h1-line > span', h1);
-    var infoCard = $('.hero-info-card', heroVisual);
-    var machineImg = $('.hero-machine img', heroVisual);
+    var machine = $('.hero-machine', heroVisual);
+    var tag = $('.hero-tag', heroVisual);
+    var factItems = $$('li', heroFacts);
 
-    gsap.set([$('.eyebrow', heroCopy), $('.hero-lead', heroCopy), $('.hero-actions', heroCopy), infoCard], { opacity: 0, y: 24 });
+    gsap.set([$('.hero-lead', heroCopy), $('.hero-actions', heroCopy)], { opacity: 0, y: 24 });
     gsap.set(h1Lines, { yPercent: 105 });
-    gsap.set(machineImg, { opacity: 0, y: 32 });
-    gsap.set($$('.hero-info-card li', heroVisual).concat($$('li', heroProofs)), { opacity: 0, y: 16 });
+    gsap.set(heroVisual, { opacity: 0 });
+    gsap.set(machine, { y: 36 });
+    gsap.set(tag, { opacity: 0, y: 16 });
+    gsap.set(factItems, { opacity: 0, y: 16 });
 
     gsap.timeline({ defaults: { ease: EASE }, delay: 0.05 })
-      .to($('.eyebrow', heroCopy), { opacity: 1, y: 0, duration: 0.5 }, 0)
-      .to(h1Lines, { yPercent: 0, duration: 0.75, stagger: 0.1 }, 0.08)
-      .to(machineImg, { opacity: 1, y: 0, duration: 0.9 }, 0.2)
+      .to(h1Lines, { yPercent: 0, duration: 0.75, stagger: 0.1 }, 0)
+      .to(heroVisual, { opacity: 1, duration: 0.8 }, 0.15)
+      .to(machine, { y: 0, duration: 1 }, 0.15)
       .to($('.hero-lead', heroCopy), { opacity: 1, y: 0, duration: 0.6 }, 0.35)
       .to($('.hero-actions', heroCopy), { opacity: 1, y: 0, duration: 0.6 }, 0.45)
-      .to(infoCard, { opacity: 1, y: 0, duration: 0.6 }, 0.45)
-      .to($$('.hero-info-card li', heroVisual), { opacity: 1, y: 0, duration: 0.45, stagger: 0.06 }, 0.55)
-      .to($$('li', heroProofs), { opacity: 1, y: 0, duration: 0.45, stagger: 0.06 }, 0.6)
+      .to(tag, { opacity: 1, y: 0, duration: 0.5, clearProps: 'transform' }, 0.6)
+      .to(factItems, { opacity: 1, y: 0, duration: 0.45, stagger: 0.07 }, 0.6)
       .eventCallback('onComplete', function () {
-        // Linie wracają do zwykłego H1 (poprawne łamanie przy zmianie szerokości)
+        // Wracamy do zwykłego H1 (poprawne łamanie przy zmianie szerokości)
         h1.innerHTML = h1Html;
       });
 
-    // Trzy warstwy w różnym tempie
-    var heroScrub = { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
-    gsap.to($('.hero-bg__img', hero), { yPercent: 35, ease: 'none', scrollTrigger: heroScrub });
+    // Głębia: tło najwolniej, linie szybciej, urządzenie lekko w górę
+    var heroScrub = function () {
+      return { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
+    };
+    gsap.to($('.hero-bg__img', hero), { yPercent: 25, ease: 'none', scrollTrigger: heroScrub() });
     gsap.to($('.hero-bg', hero), {
-      '--layer-y': function () { return hero.offsetHeight * 0.18 + 'px'; },
+      '--layer-y': function () { return hero.offsetHeight * 0.15 + 'px'; },
       ease: 'none',
       scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true, invalidateOnRefresh: true }
     });
-    gsap.to($('.hero-machine', heroVisual), { y: -40, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
-    gsap.fromTo(heroCopy, { opacity: 1 }, {
-      opacity: 0.25,
-      ease: 'none',
-      immediateRender: false,
-      scrollTrigger: { trigger: hero, start: 'top+=15% top', end: 'bottom top', scrub: true }
-    });
+    gsap.to(machine.querySelector('img'), { y: -40, ease: 'none', scrollTrigger: heroScrub() });
   }
 
-  /* ---------- 2. Jak to działa ---------- */
-  var how = $('#jak-to-dziala');
-  if (how) {
-    var howGrid = $('.how-grid', how);
-    var howVisual = claim($('.how-visual', how));
-    var steps = $$('.process-step', how);
-    var dots = $$('.process-track__dot', how);
-    var lines = $$('.process-track__line', how);
-    var markers = $$('.process-marker', how);
-    var details = $('.process-details', how);
-    var detailItems = $$('li', details);
-    var summary = $('summary', details);
-
-    var mmHow = gsap.matchMedia();
-
-    // Wejście (desktop i mobile): etapy, schemat, szczegóły
-    mmHow.add('all', function () {
-      var track = $('.process-track', how);
-      var image = $('.process-diagram__image', how);
-      gsap.set(steps, { opacity: 0, y: 20 });
-      gsap.set(track, { opacity: 0 });
-      gsap.set([image, details], { opacity: 0, y: 28 });
-      onceInView(howVisual, 'top 85%', function () {
-        gsap.timeline({ defaults: { ease: EASE } })
-          .to(steps, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, clearProps: 'opacity,transform' }, 0)
-          .to(track, { opacity: 1, duration: 0.6, clearProps: 'opacity' }, 0.2)
-          .to(image, { opacity: 1, y: 0, duration: 0.9, clearProps: 'opacity,transform' }, 0.25)
-          .to(details, { opacity: 1, y: 0, duration: 0.6, clearProps: 'opacity,transform' }, 0.45);
-      });
-    });
-
-    mmHow.add('(min-width: 1024px) and (min-height: 720px)', function () {
-      var wasOpen = details.open;
-      details.open = true;
-      how.classList.add('how-pinned');
-
-      if (howGrid.offsetHeight > window.innerHeight - headerOffset() - 16) {
-        details.open = wasOpen;
-        how.classList.remove('how-pinned');
-        return;
-      }
-
-      var blockToggle = function (e) { e.preventDefault(); };
-      summary.addEventListener('click', blockToggle);
-
-      var active = -1;
-      function setActive(i) {
-        active = i;
-        steps.forEach(function (el, j) { el.classList.toggle('is-active', j === i); });
-        markers.forEach(function (el, j) { el.classList.toggle('is-active', j === i); });
-        detailItems.forEach(function (el, j) { el.classList.toggle('is-active', j === i); });
-        dots.forEach(function (el, j) { el.classList.toggle('is-reached', j <= i); });
-      }
-      function update(p) {
-        var n = steps.length;
-        var i = Math.min(n - 1, Math.floor(p * n));
-        // Linia do następnego etapu wypełnia się w ostatnich 30% bieżącego etapu
-        lines.forEach(function (line, j) {
-          var fill = Math.max(0, Math.min(1, (p * n - j - 0.7) / 0.3));
-          line.style.setProperty('--fill', fill.toFixed(3));
-        });
-        if (i !== active) setActive(i);
-      }
-      update(0);
-
-      var st = ScrollTrigger.create({
-        trigger: howGrid,
-        start: function () { return 'center center+=' + headerOffset() / 2; },
-        end: function () { return '+=' + window.innerHeight * 4.5; },
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onUpdate: function (self) { update(self.progress); }
-      });
-
-      var onStepClick = function (event) {
-        var k = steps.indexOf(event.currentTarget);
-        lenis.scrollTo(st.start + (st.end - st.start) * (k + 0.5) / steps.length);
-      };
-      steps.forEach(function (el) { el.addEventListener('click', onStepClick); });
-
-      return function () {
-        steps.forEach(function (el) {
-          el.removeEventListener('click', onStepClick);
-          el.classList.remove('is-active');
-        });
-        summary.removeEventListener('click', blockToggle);
-        markers.concat(detailItems).forEach(function (el) { el.classList.remove('is-active'); });
-        dots.forEach(function (el) { el.classList.remove('is-reached'); });
-        lines.forEach(function (el) { el.style.removeProperty('--fill'); });
-        how.classList.remove('how-pinned');
-        details.open = wasOpen;
-      };
-    });
-  }
-
-  /* ---------- 3. Rodzaje wag ---------- */
-  var typeCards = $$('.type-card').map(claim);
-  if (typeCards.length) {
-    typeCards.forEach(function (card) {
-      gsap.set(card, { opacity: 0, y: 32 });
-      gsap.set($('.type-card__media', card), { clipPath: CLIP_HIDDEN });
-      gsap.set($('.type-card__body', card), { opacity: 0, y: 16 });
-    });
-    ScrollTrigger.batch(typeCards, {
-      start: 'top 88%',
-      once: true,
-      onEnter: function (batch) {
-        var tl = gsap.timeline({ defaults: { ease: EASE } });
-        var parts = [];
-        batch.forEach(function (card, i) {
-          var media = $('.type-card__media', card);
-          var body = $('.type-card__body', card);
-          parts.push(media, body);
-          tl.to(card, { opacity: 1, y: 0, duration: 0.7 }, i * 0.1)
-            .to(media, { clipPath: CLIP_SHOWN, duration: 0.9 }, i * 0.1)
-            .to(body, { opacity: 1, y: 0, duration: 0.6 }, i * 0.1 + 0.15);
-        });
-        tl.eventCallback('onComplete', function () { done(batch.concat(parts)); });
-      }
-    });
-  }
-
-  var compare = claim($('.compare-block'));
-  if (compare) {
-    var compareHead = [$('h3', compare), $('.section-text', compare)];
-    var compareRows = $$('tr', compare);
-    gsap.set(compareHead, { opacity: 0, y: 24 });
-    gsap.set($('.table-wrap', compare), { opacity: 0 });
-    gsap.set(compareRows, { opacity: 0, y: 16 });
-    onceInView(compare, 'top 85%', function () {
+  /* ---------- Modele ---------- */
+  $$('.model').forEach(function (model) {
+    claim(model);
+    var media = $('.model__media', model);
+    var bodyParts = $$('.model__body > *', model);
+    gsap.set(media, { clipPath: CLIP_HIDDEN });
+    gsap.set(bodyParts, { opacity: 0, y: 24 });
+    onceInView(model, 'top 80%', function () {
       gsap.timeline({ defaults: { ease: EASE } })
-        .to(compareHead, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 }, 0)
-        .to($('.table-wrap', compare), { opacity: 1, duration: 0.6 }, 0.15)
-        .to(compareRows, { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 }, 0.25);
+        .to(media, { clipPath: CLIP_SHOWN, duration: 1 }, 0)
+        .to(bodyParts, { opacity: 1, y: 0, duration: 0.7, stagger: 0.06, clearProps: 'opacity,transform' }, 0.15)
+        .eventCallback('onComplete', function () { done([media, model]); });
+    });
+
+    // Lekka paralaksa zdjęcia w ramce (desktop)
+    gsap.matchMedia().add('(min-width: 1024px)', function () {
+      gsap.fromTo($('img', media), { y: 30 }, {
+        y: -30,
+        ease: 'none',
+        scrollTrigger: { trigger: model, start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    });
+  });
+
+  /* ---------- Jak działa: etapy po kolei, linia łączy etapy ---------- */
+  var stepsList = $('.steps');
+  if (stepsList) {
+    var steps = $$('.step', stepsList).map(claim);
+    gsap.set(steps, { opacity: 0, y: 28 });
+    stepsList.style.setProperty('--steps-line', '0');
+    onceInView(stepsList, 'top 80%', function () {
+      gsap.timeline({ defaults: { ease: EASE } })
+        .to(steps, { opacity: 1, y: 0, duration: 0.7, stagger: 0.14 }, 0)
+        .to(stepsList, { '--steps-line': 1, duration: 1.1, ease: 'power2.inOut' }, 0.1)
+        .eventCallback('onComplete', function () { done(steps); });
     });
   }
 
-  /* ---------- 4. Zastosowania ---------- */
+  /* ---------- Zastosowania ---------- */
   var appCards = $$('.app-card').map(claim);
   if (appCards.length) {
-    appCards.forEach(function (card) {
-      gsap.set(card, { opacity: 0, y: 32, clipPath: 'inset(100% 0% 0% 0% round 14px)' });
-      gsap.set($('figcaption', card), { opacity: 0 });
-    });
+    gsap.set(appCards, { opacity: 0, y: 28, clipPath: 'inset(100% 0% 0% 0% round 14px)' });
     ScrollTrigger.batch(appCards, {
       start: 'top 90%',
       once: true,
       onEnter: function (batch) {
-        var tl = gsap.timeline({ defaults: { ease: EASE } });
-        var captions = batch.map(function (card) { return $('figcaption', card); });
-        tl.to(batch, { opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0% round 14px)', duration: 0.9, stagger: 0.08 }, 0)
-          .to(captions, { opacity: 1, duration: 0.5, stagger: 0.08 }, 0.3);
-        tl.eventCallback('onComplete', function () { done(batch.concat(captions)); });
+        gsap.to(batch, {
+          opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0% round 14px)',
+          duration: 0.9, stagger: 0.07, ease: EASE,
+          onComplete: function () { done(batch); }
+        });
       }
     });
 
     // Paralaksa zdjęć w ramkach (desktop)
     gsap.matchMedia().add('(min-width: 1024px)', function () {
-      appCards.forEach(function (card) {
-        var img = $('img', card);
-        gsap.set(img, { scale: 1.15 });
-        gsap.fromTo(img, { yPercent: -6 }, {
-          yPercent: 6,
+      $$('.app-card__media img').forEach(function (img) {
+        gsap.set(img, { scale: 1.12 });
+        gsap.fromTo(img, { yPercent: -5 }, {
+          yPercent: 5,
           ease: 'none',
-          scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true }
+          scrollTrigger: { trigger: img.parentNode, start: 'top bottom', end: 'bottom top', scrub: true }
         });
       });
     });
   }
 
-  /* ---------- 5. Korzyści ---------- */
+  /* ---------- Korzyści ---------- */
   var benefits = $('#korzysci');
   if (benefits) {
     benefits.classList.add('is-parallax');
@@ -364,9 +258,9 @@
       scrollTrigger: { trigger: benefits, start: 'top bottom', end: 'bottom top', scrub: true }
     });
 
-    var benefitCards = $$('.benefit-card', benefits).map(claim);
-    gsap.set(benefitCards, { opacity: 0, y: 32 });
-    ScrollTrigger.batch(benefitCards, {
+    var benefitItems = $$('.benefit', benefits).map(claim);
+    gsap.set(benefitItems, { opacity: 0, y: 24 });
+    ScrollTrigger.batch(benefitItems, {
       start: 'top 90%',
       once: true,
       onEnter: function (batch) {
@@ -374,34 +268,6 @@
           opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: EASE,
           onComplete: function () { done(batch); }
         });
-      }
-    });
-  }
-
-  /* ---------- 6. Legalizacja i kalibracja ---------- */
-  var serviceWrap = claim($('.service-cards'));
-  var serviceCards = $$('.service-card').map(claim);
-  if (serviceCards.length) {
-    serviceCards.forEach(function (card) {
-      gsap.set(card, { opacity: 0, y: 24 });
-      gsap.set($('.service-card__media', card), { clipPath: CLIP_HIDDEN });
-      gsap.set($('.service-card__body', card), { opacity: 0, y: 12 });
-    });
-    ScrollTrigger.batch(serviceCards, {
-      start: 'top 90%',
-      once: true,
-      onEnter: function (batch) {
-        var tl = gsap.timeline({ defaults: { ease: EASE } });
-        var parts = [];
-        batch.forEach(function (card, i) {
-          var media = $('.service-card__media', card);
-          var body = $('.service-card__body', card);
-          parts.push(media, body);
-          tl.to(card, { opacity: 1, y: 0, duration: 0.7 }, i * 0.1)
-            .to(media, { clipPath: CLIP_SHOWN, duration: 0.9 }, i * 0.1)
-            .to(body, { opacity: 1, y: 0, duration: 0.6 }, i * 0.1 + 0.15);
-        });
-        tl.eventCallback('onComplete', function () { done(batch.concat(parts, serviceWrap ? [serviceWrap] : [])); });
       }
     });
   }
